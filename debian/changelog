@@ -1,3 +1,12 @@
+shared-mime-info (1.10-1+revpi10+1~elbe1) buster; urgency=medium
+
+  ** SNAPSHOT build @e277b2e07705bdbdbbfd569d14d5a84e80866f19 **
+
+  [ Zhi Han ]
+  * Change soure/format to 3.0 (git)
+
+ --  Zhi Han <z.han@kunbus.com>  Fri, 17 Sep 2021 16:23:07 +0200
+
 shared-mime-info (1.10-1+revpi10+1) buster; urgency=medium
 
   ** SNAPSHOT build @d8fd6c873102d99efb64f6e0a92b9c392831079b **

@@ -1,8 +1,18 @@
-Index: shared-mime-info-0.90/freedesktop.org.xml.in
+From: "Debian freedesktop.org maintainers"
+ <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+Date: Fri, 17 Sep 2021 15:12:43 +0200
+Subject: _tex-matlab
+
 ===================================================================
---- shared-mime-info-0.90.orig/freedesktop.org.xml.in	2011-09-26 13:15:23.000000000 +0200
-+++ shared-mime-info-0.90/freedesktop.org.xml.in	2011-09-26 13:20:03.000000000 +0200
-@@ -5033,7 +5033,13 @@ command to generate the output files.
+---
+ freedesktop.org.xml.in | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/freedesktop.org.xml.in b/freedesktop.org.xml.in
+index 2828a6e..5dab4ab 100644
+--- a/freedesktop.org.xml.in
++++ b/freedesktop.org.xml.in
+@@ -6321,7 +6321,13 @@ command to generate the output files.
        <match type="string" value="%" offset="0"/>
      </magic>
      <magic priority="50">

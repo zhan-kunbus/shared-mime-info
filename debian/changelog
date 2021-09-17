@@ -1,3 +1,12 @@
+shared-mime-info (1.10-1+revpi10+1) buster; urgency=medium
+
+  ** SNAPSHOT build @d8fd6c873102d99efb64f6e0a92b9c392831079b **
+
+  [ Zhi Han ]
+  * Patch-queue import commits for LFS and buildchecks
+
+ -- Zhi Han <z.han@kunbus.com>  Fri, 17 Sep 2021 15:36:31 +0200
+
 shared-mime-info (1.10-1) unstable; urgency=medium
 
   * New upstream release.

@@ -1,0 +1,65 @@
+From: Zhi Han <z.han@kunbus.com>
+Date: Wed, 25 Aug 2021 12:47:24 +0200
+Subject: Add patch to prevent run certain checks
+
+If a .git directory is present some buildchecks are run which will fail.
+These checks are now disabled unconditionally.
+
+Signed-off-by: Zhi Han <z.han@kunbus.com>
+---
+ Makefile.am | 6 +++---
+ Makefile.in | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index b5ffec0..a3c55ce 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -94,7 +94,7 @@ else
+ 		echo "***************************************************************************" ; \
+ 		exit 1 ; \
+ 	fi
+-	if test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
++	if false && test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
+ 		mkdir -p $(top_builddir)/temp-mime-dir/mime/packages ; \
+ 		cp -a $(top_builddir)/freedesktop.org.xml $(top_builddir)/temp-mime-dir/mime/packages/ ; \
+ 		XDG_DATA_DIRS="$(top_builddir)/temp-mime-dir/" $(top_builddir)/update-mime-database$(EXEEXT) "$(top_builddir)/temp-mime-dir/mime/" ; \
+@@ -112,10 +112,10 @@ else
+ 	else \
+ 		xmllint --noout --valid $(top_srcdir)/freedesktop.org.xml || exit 1;	\
+ 	fi; \
+-	if test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
++	if false && test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
+ 		$(top_builddir)/update-mime-database$(EXEEXT) mime-db-tests/ ; \
+ 	fi
+-	@if test -d .git/ ; then \
++	@if false && test -d .git/ ; then \
+ 		if test ! -x ../xdgmime/src/test-mime-data$(EXEEXT) || test ! -x $(top_builddir)/test-tree-magic$(EXEEXT) ; then \
+ 			echo "***************************************************************************" ; \
+ 			echo "*** xdgmime not compiled, test suite cannot run. Check HACKING for info ***" ; \
+diff --git a/Makefile.in b/Makefile.in
+index 0b40e40..a6a487f 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -1189,7 +1189,7 @@ local-test: create-pot freedesktop.org.xml update-mime-database$(EXEEXT)
+ @CROSS_COMPILING_FALSE@		echo "***************************************************************************" ; \
+ @CROSS_COMPILING_FALSE@		exit 1 ; \
+ @CROSS_COMPILING_FALSE@	fi
+-@CROSS_COMPILING_FALSE@	if test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
++@CROSS_COMPILING_FALSE@	if false && test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
+ @CROSS_COMPILING_FALSE@		mkdir -p $(top_builddir)/temp-mime-dir/mime/packages ; \
+ @CROSS_COMPILING_FALSE@		cp -a $(top_builddir)/freedesktop.org.xml $(top_builddir)/temp-mime-dir/mime/packages/ ; \
+ @CROSS_COMPILING_FALSE@		XDG_DATA_DIRS="$(top_builddir)/temp-mime-dir/" $(top_builddir)/update-mime-database$(EXEEXT) "$(top_builddir)/temp-mime-dir/mime/" ; \
+@@ -1204,10 +1204,10 @@ check: create-pot freedesktop.org.xml update-mime-database$(EXEEXT) check-transl
+ @CROSS_COMPILING_FALSE@	else \
+ @CROSS_COMPILING_FALSE@		xmllint --noout --valid $(top_srcdir)/freedesktop.org.xml || exit 1;	\
+ @CROSS_COMPILING_FALSE@	fi; \
+-@CROSS_COMPILING_FALSE@	if test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
++@CROSS_COMPILING_FALSE@	if false && test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
+ @CROSS_COMPILING_FALSE@		$(top_builddir)/update-mime-database$(EXEEXT) mime-db-tests/ ; \
+ @CROSS_COMPILING_FALSE@	fi
+-@CROSS_COMPILING_FALSE@	@if test -d .git/ ; then \
++@CROSS_COMPILING_FALSE@	@if false && test -d .git/ ; then \
+ @CROSS_COMPILING_FALSE@		if test ! -x ../xdgmime/src/test-mime-data$(EXEEXT) || test ! -x $(top_builddir)/test-tree-magic$(EXEEXT) ; then \
+ @CROSS_COMPILING_FALSE@			echo "***************************************************************************" ; \
+ @CROSS_COMPILING_FALSE@			echo "*** xdgmime not compiled, test suite cannot run. Check HACKING for info ***" ; \

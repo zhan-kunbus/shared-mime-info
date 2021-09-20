@@ -1,0 +1,28 @@
+From: Mike Gilbert <floppym@gentoo.org>
+Date: Wed, 1 May 2019 12:00:11 -0400
+Subject: build: enable large file support (LFS)
+
+glibc-2.28 changed the behavior of getdents() and readdier() on 32-bit
+systems so that large inode numbers cause EOVERFLOW.
+
+Using the 64-bit (LFS) system calls avoids any problems this might
+cause.
+
+Bug: https://bugs.gentoo.org/684884
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 9afeff3..8e323bf 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -12,7 +12,7 @@ AC_PROG_CC
+ 
+ dnl Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST
+-
++AC_SYS_LARGEFILE
+ 
+ IT_PROG_INTLTOOL([0.35.0])
+ 

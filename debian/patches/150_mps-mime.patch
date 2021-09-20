@@ -1,6 +1,17 @@
+From: "Debian freedesktop.org maintainers"
+ <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+Date: Mon, 20 Sep 2021 08:55:00 +0200
+Subject: _mps-mime
+
+---
+ freedesktop.org.xml.in | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/freedesktop.org.xml.in b/freedesktop.org.xml.in
+index 5dab4ab..cae59ec 100644
 --- a/freedesktop.org.xml.in
 +++ b/freedesktop.org.xml.in
-@@ -2912,6 +2912,10 @@
+@@ -3388,6 +3388,10 @@ command to generate the output files.
      </magic>
      <glob pattern="*.psw"/>
    </mime-type>

@@ -1,3 +1,10 @@
+shared-mime-info (1.10-1+revpi10+1~elbe1) buster; urgency=medium
+
+  * Applied patches from debian/patches/ to be able to build the package with
+    ELBE pbuilder.
+
+ -- Philipp Rosenberger <p.rosenberger@kunbus.com>  Mon, 20 Sep 2021 09:42:37 +0200
+
 shared-mime-info (1.10-1+revpi10+1) buster; urgency=medium
 
   * Build for RasiOS Buster

@@ -1,3 +1,10 @@
+shared-mime-info (1.10-1+revpi10+1) buster; urgency=medium
+
+  * Build for RasiOS Buster
+  * Add patches to enable LFS and avoid issues when building from git
+
+ -- Philipp Rosenberger <p.rosenberger@kunbus.com>  Mon, 20 Sep 2021 09:13:50 +0200
+
 shared-mime-info (1.10-1) unstable; urgency=medium
 
   * New upstream release.
